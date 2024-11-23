@@ -33,9 +33,6 @@ public class Anagram {
 		// Replace the following statement with your code
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
-		if(str1.length() != str2.length())
-			return false;
-		
 		char[] c1 = str1.toCharArray();
 		char[] c2 = str2.toCharArray();
 		boolean flag;
