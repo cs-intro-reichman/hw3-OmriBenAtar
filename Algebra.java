@@ -27,8 +27,14 @@ public class Algebra {
 	public static int plus(int x1, int x2) {
 		// Replace the following statement with your code
 		int sum = x1;
-		for (int i = 0; i < x2; i++) {
-			sum++;
+		int ph = 0;
+		if(x2 < 0)
+			ph = -x2;
+		for (int i = 0; i < ph; i++) {
+			if( x2<0)
+				sum--;
+			else
+				sum++;
 		}
 		return sum;
 	}
@@ -37,8 +43,14 @@ public class Algebra {
 	public static int minus(int x1, int x2) {
 		// Replace the following statement with your code
 		int sum = x1;
-		for (int i = 0; i < x2; i++) {
-			sum--;
+		int ph = 0;
+		if(x2 < 0)
+			ph = -x2;
+		for (int i = 0; i < ph; i++) {
+			if(x2 < 0)
+				sum++;
+			else
+				sum--;
 		}
 		return sum;
 	}
@@ -47,8 +59,14 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
 		int sum = 0;
-		for (int i = 0; i < x2; i++) {
-			sum += x1;
+		int ph = 0;
+		if(x2 < 0)
+			ph = -x2;
+		for (int i = 0; i < ph; i++) {
+			if(x2 < 0)
+				sum -= x1;
+			else
+				sum += x1;
 		}
 		return sum;
 	}
@@ -79,15 +97,6 @@ public class Algebra {
 			count++;
 		}
 		return count;
-		// if(x2 > x1)
-		// 	return 0;
-		// int sum = x1;
-		// int count = 0;
-		// while(sum > 0){
-		// 	count++;
-		// 	sum -= x2;
-		// }
-		// return count;
 	}
 
 	// Returns x1 % x2
