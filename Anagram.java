@@ -38,7 +38,7 @@ public class Anagram {
 		
 		char[] c1 = str1.toCharArray();
 		char[] c2 = str2.toCharArray();
-		boolean flag = false;
+		boolean flag;
 		for (int i = 0; i < c1.length; i++) {
 			flag = true;
 			char letter = c1[i];
@@ -47,6 +47,7 @@ public class Anagram {
 					flag = false;
 					//we already cleared all numbers so its safe to use as keyword for marking purposes.
 					c2[j] = 0;
+					break;
 				}
 			}
 			if (flag)

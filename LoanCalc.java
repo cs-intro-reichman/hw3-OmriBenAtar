@@ -2,7 +2,7 @@
 public class LoanCalc {
 	
 	static double epsilon = 0.001;  // Approximation accuracy
-	static int iterationCounter;    // Number of iterations 
+	static int iterationCounter = 0;    // Number of iterations 
 	
 	// Gets the loan data and computes the periodical payment.
     // Expects to get three command-line arguments: loan amount (double),
@@ -45,8 +45,10 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {
 		// Replace the following statement with your code
+		iterationCounter = 0;
 		double guess = loan / n;
 		while (endBalance(loan, rate, n, guess) > 0) { 
+			iterationCounter++;
 			guess += epsilon;
 		}
 		return guess;
@@ -63,6 +65,7 @@ public class LoanCalc {
 		double H = loan;
 		double mid = 0;
 		while((H - L) > epsilon){
+			iterationCounter++;
 			mid = (L+H)/2;
 			double balance = endBalance(loan, rate, n, mid);
 			if(balance > 0)
