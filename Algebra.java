@@ -84,10 +84,16 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		// Replace the following statement with your code
+		boolean isNeg1 = x1 < 0;
+		boolean isNeg2 = x2 < 0;
 		if(x2 > x1)
 			return 0;
 		if(x2 == x1)
 			return 1;
+		if(isNeg1)
+			x1 = -(x1);
+		if(isNeg2)
+			x2 = -(x2);
 		int count = 0;
 		int res = 0;
 		while(res < x1){
@@ -96,6 +102,8 @@ public class Algebra {
 				return count;
 			count++;
 		}
+		if(isNeg1 ^ isNeg2)
+			return -(count);
 		return count;
 	}
 
