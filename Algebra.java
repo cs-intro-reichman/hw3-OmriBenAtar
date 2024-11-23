@@ -29,7 +29,7 @@ public class Algebra {
 		int sum = x1;
 		int ph = 0;
 		if(x2 < 0)
-			ph = -x2;
+			ph =  -(x2);
 		for (int i = 0; i < ph; i++) {
 			if( x2<0)
 				sum--;
@@ -45,7 +45,7 @@ public class Algebra {
 		int sum = x1;
 		int ph = 0;
 		if(x2 < 0)
-			ph = -x2;
+			ph = -(x2);
 		for (int i = 0; i < ph; i++) {
 			if(x2 < 0)
 				sum++;
@@ -61,7 +61,7 @@ public class Algebra {
 		int sum = 0;
 		int ph = 0;
 		if(x2 < 0)
-			ph = -x2;
+			ph = -(x2);
 		for (int i = 0; i < ph; i++) {
 			if(x2 < 0)
 				sum -= x1;
