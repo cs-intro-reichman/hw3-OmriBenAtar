@@ -27,7 +27,7 @@ public class Algebra {
 	public static int plus(int x1, int x2) {
 		// Replace the following statement with your code
 		int sum = x1;
-		int ph = 0;
+		int ph = x2;
 		if(x2 < 0)
 			ph =  -(x2);
 		for (int i = 0; i < ph; i++) {
@@ -43,7 +43,7 @@ public class Algebra {
 	public static int minus(int x1, int x2) {
 		// Replace the following statement with your code
 		int sum = x1;
-		int ph = 0;
+		int ph = x2;
 		if(x2 < 0)
 			ph = -(x2);
 		for (int i = 0; i < ph; i++) {
@@ -59,7 +59,7 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
 		int sum = 0;
-		int ph = 0;
+		int ph = x2;
 		if(x2 < 0)
 			ph = -(x2);
 		for (int i = 0; i < ph; i++) {
