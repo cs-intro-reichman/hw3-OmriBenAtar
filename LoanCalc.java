@@ -73,10 +73,6 @@ public class LoanCalc {
 			}else{
 				H = mid;
 			}
-			// if(balance > 0)
-			// 	L = mid;
-			// else
-			// 	H = mid;
 		}
 		return mid;
     }
