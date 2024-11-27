@@ -111,7 +111,7 @@ public class Algebra {
 	public static int mod(int x1, int x2) {
 		// Replace the following statement with your code
 		int x3 = div(x1, x2);
-		return x1 - (x2 * x3);
+		return (x1 - times(x2, x3));
 	}	
 
 	// Returns the integer part of sqrt(x) 
