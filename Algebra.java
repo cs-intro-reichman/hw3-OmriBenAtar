@@ -26,42 +26,108 @@ public class Algebra {
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int sum = x1;
+		int ph = x2;
+		if(x2 < 0)
+			ph =  -(x2);
+		for (int i = 0; i < ph; i++) {
+			if( x2<0)
+				sum--;
+			else
+				sum++;
+		}
+		return sum;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int sum = x1;
+		int ph = x2;
+		if(x2 < 0)
+			ph = -(x2);
+		for (int i = 0; i < ph; i++) {
+			if(x2 < 0)
+				sum++;
+			else
+				sum--;
+		}
+		return sum;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int sum = 0;
+		int ph = x2;
+		if(x2 < 0)
+			ph = -(x2);
+		for (int i = 0; i < ph; i++) {
+			if(x2 < 0)
+				sum -= x1;
+			else
+				sum += x1;
+		}
+		return sum;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		// Replace the following statement with your code
-		return 0;
+		int sum = 1;
+		for (int i = 0; i < n; i++) {
+			sum = times(sum, x);
+		}
+		return sum;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		boolean isNeg1 = x1 < 0;
+		boolean isNeg2 = x2 < 0;
+		if(x2 > x1)
+			return 0;
+		if(x2 == x1)
+			return 1;
+		if(isNeg1)
+			x1 = -(x1);
+		if(isNeg2)
+			x2 = -(x2);
+		int count = 0;
+		int res = 0;
+		while(res < x1){
+			res = plus(res, x2);
+			if(res > x1)
+				return count;
+			count++;
+		}
+		if(isNeg1 ^ isNeg2)
+			return -(count);
+		return count;
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int x3 = div(x1, x2);
+		return minus(x1, times(x2, x3));
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
 		// Replace the following statement with your code
-		return 0;
+		int sqrt = 0;
+		int pow = 0;
+		while(pow < x){
+			sqrt++;
+			pow = pow(sqrt, 2);
+			if(pow == x){
+				return sqrt;
+			}
+		}
+		if(pow > x)
+			return sqrt-1;
+		return sqrt;
 	}	  	  
 }

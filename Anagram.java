@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /** Functions for checking if a given string is an anagram. */
 public class Anagram {
 	public static void main(String args[]) {
@@ -29,7 +31,26 @@ public class Anagram {
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
 		// Replace the following statement with your code
-		return false;
+		str1 = preProcess(str1);
+		str2 = preProcess(str2);
+		char[] c1 = str1.toCharArray();
+		char[] c2 = str2.toCharArray();
+		boolean flag;
+		for (int i = 0; i < c1.length; i++) {
+			flag = true;
+			char letter = c1[i];
+			for (int j = 0; j < c2.length; j++) {
+				if (c2[j] == letter){
+					flag = false;
+					//we already cleared all numbers so its safe to use as keyword for marking purposes.
+					c2[j] = 0;
+					break;
+				}
+			}
+			if (flag)
+				return false;
+		}
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -37,13 +58,26 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		// Replace the following statement with your code
-		return "";
+		str = str.toLowerCase();
+		str = str.replaceAll("[^a-z ]", "");
+		return str;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
 		// Replace the following statement with your code
-		return "";
+		char[] letters = str.toCharArray();
+		char[] anagram = new char[letters.length];
+		Random rnd = new Random();
+		int remainings = letters.length;
+		for (int i = 0; i < anagram.length; i++) {
+			int index = rnd.nextInt(remainings);
+			anagram[i] = letters[index];
+			//moving the entire char array
+			letters[index] = letters[remainings - 1];
+			remainings--;
+		}
+		return new String(anagram);
 	}
 }
